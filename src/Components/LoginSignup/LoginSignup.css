@@ -52,6 +52,8 @@
     height: auto;
     background: #eaeaea;
     border-radius: 6px;
+    gap: 15px;
+    
 }
 .input input{
  height: 50px;
@@ -100,6 +102,30 @@ cursor: pointer;
     background: #EAEAEA;
     color: #676767;
 }
+.inputs span{
+    font-size: 14px;
+    color: red;
+    
+    }
+.submit-container span{
+    font-size: 14px;
+    color: red;
+   
+}
+#name-error {
+    color-scheme: red;
+    font-size: 12 px;
+    white-space: nowrap;
+    text-align: right;
+    gap: 12px;
+    }
+
+#submit.error{
+color: red;
+    }
+
+
+
 
 
 
