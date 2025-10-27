@@ -55,6 +55,14 @@ const LoginSignup = () => {
       alert("Please fix errors before submitting.");
     }
   };
+  
+  {/* Reset all fields and errors when switching modes */}
+  const resetFields = () =>{
+    setName("");
+    setEmail("");
+    setPassword("");
+    setErrors({});
+  };
 
   return (
     <div className="container">
@@ -122,10 +130,12 @@ const LoginSignup = () => {
 
           <span className="error">{errors.password}</span>
 
-          {/* Forgot Password Link */}
+          {/* Forgot Password Link only show in login mode*/}
+          {isLogin && (
           <div className="forgot-password">
             Forgot Password? <a href="#">Click Here.</a>
           </div>
+          )}
         </div>
 
         {/* BUTTONS */}
@@ -135,16 +145,20 @@ const LoginSignup = () => {
             <button
               type="button"
               className={isLogin ? "active" : ""}
-              onClick={() =>setIsLogin(true)}>
+              onClick={() => {setIsLogin(true);
+                resetFields();
+              }}>
                 Login </button>
              <button
               type="button"
               className={isLogin ? "active" : ""}
-              onClick={() =>setIsLogin(false)}>
+              onClick={() => {setIsLogin(false)
+                resetFields();
+              }}>
                 Sign Up </button>   
           </div>
          
-          <button type="submit">{isLogin ? "Submit" : "Submit"}</button>
+          <button type="submit">{isLogin ? "Click to Login" : "Click to Sign Up"}</button>
         </div>
       </form>
     </div>
